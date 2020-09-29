@@ -10,11 +10,6 @@ const cwd = path.join(__dirname, '.')
  
 //打包分析结果
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; 
-
-//https://www.cnblogs.com/susouth/p/10057778.html 
-//CSS 相关使用插件
-const PurifyCssPlugin = require('purifycss-webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') 
  
 //提供resolve的路径分析效果
 function resolve(dir) {
@@ -112,26 +107,7 @@ module.exports = {
         name: 'manifest'
       },
       minimizer: [
-        new TerserPlugin({
-          cache: true,
-          parallel: true, //多进程加快压缩速度
-          sourceMap: false, // Must be set to true if using source-maps in production
-          terserOptions: {
-            compress: {
-              // drop_console: true,
-              // drop_debugger: true
-            }
-          }
-        }), 
-        //消除未使用的css
-        new PurifyCssPlugin ({
-          paths: glob.sync(path.join(__dirname, '/*.html'))
-        }), 
-        //压缩css
-        new MiniCssExtractPlugin({
-          filename: 'css/[id].css?v=[contenthash:8]',
-          chunkFilename: 'css/[id].css?v=[contenthash:8]',
-        }),
+       
       ],
       //拆分包
       splitChunks:{
