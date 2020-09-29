@@ -1,0 +1,231 @@
+/**
+  ml-12:margin-left:12px
+  mr-12:margin-right:12px
+  mt-12:margin-top:12px
+  mb-10:margin-bottom:10px
+  <p wrap="ml-13 mr-13 mt-1 mb-10"></p>
+*/
+.size(@px) {
+  @size: @px*2px
+};
+
+//初始化padding margin  font-size height line-height
+.loop(@counter) when (@counter > 1 ) {
+  .size(@counter);
+
+  [wrap~='p-@{counter}'] {
+    padding: @size;
+  }
+
+  [wrap~='pt-@{counter}'] {
+    padding-top: @size;
+  }
+
+  [wrap~='pr-@{counter}'] {
+    padding-right: @size;
+  }
+
+  [wrap~='pb-@{counter}'] {
+    padding-bottom: @size;
+  }
+
+  [wrap~='pl-@{counter}'] {
+    padding-left: @size;
+  }
+
+  [wrap~='px-@{counter}'] {
+    padding-left: @size;
+    padding-right: @size;
+  }
+
+  [wrap~='py-@{counter}'] {
+    padding-top: @size;
+    padding-bottom: @size;
+  }
+
+  [wrap~='m-@{counter}'] {
+    margin: @size;
+  }
+
+  [wrap~='mt-@{counter}'] {
+    margin-top: @size;
+  }
+
+  [wrap~='mr-@{counter}'] {
+    margin-right: @size;
+  }
+
+  [wrap~='mb-@{counter}'] {
+    margin-bottom: @size;
+  }
+
+  [wrap~='ml-@{counter}'] {
+    margin-left: @size;
+  }
+
+  [wrap~='mx-@{counter}'] {
+    margin-left: @size;
+    margin-right: @size;
+  }
+
+  [wrap~='my-@{counter}'] {
+    margin-top: @size;
+    margin-bottom: @size;
+  }
+
+  //font-size wrap="fs-12"
+  [wrap~='fs-@{counter}'] {
+    font-size: @size;
+  }
+
+  //line-height wrap="lh-12"
+  [wrap~='lh-@{counter}'] {
+    line-height: @size;
+  }
+
+  //height wrap="h-12"
+  [wrap~='h-@{counter}'] {
+    height: @size;
+  }
+  [wrap~='w-@{counter}'] {
+    width: @size;
+  }
+
+  .loop((@counter - 1)); // 递归调用自身
+}
+
+.loop(50);
+
+//flex 相关  
+[wrap~='flex'] {
+  display: flex;
+}
+
+[wrap~='flex-1'] {
+  flex: 1;
+}
+
+// flex元素 竖向对其方式
+/* align-items */
+[wrap~='ai-fs'] {
+  align-items: flex-start;
+}
+
+[wrap~='ai-c'] {
+  align-items: center;
+}
+
+[wrap~='ai-bl'] {
+  align-items: baseline;
+}
+
+[wrap~='ai-fe'] {
+  align-items: flex-end;
+}
+
+//  方向 flex-direction
+[wrap~='fd-r'] {
+  flex-direction: row;
+}
+
+[wrap~='fd-c'] {
+  flex-direction: column;
+}
+
+[wrap~='f-l'] {
+  float: left;
+}
+
+[wrap~='f-r'] {
+  float: right;
+}
+[wrap~='fw_b'] {
+  font-weight: bold;
+}
+
+[wrap~='fw-b'] {
+  font-weight:600;
+}
+
+[wrap~='ff-pm'] {
+  font-family: PingFangSC-Medium;
+}
+
+[wrap~='fw-w'] {
+  flex-wrap: wrap;
+}
+
+/* 对其方式 just-content*/
+[wrap~='jc-fs'] {
+  justify-content: flex-start;
+}
+
+[wrap~='jc-c'] {
+  justify-content: center;
+}
+
+[wrap~='jc-fe'] {
+  justify-content: flex-end;
+}
+
+[wrap~='jc-sb'] {
+  justify-content: space-between;
+}
+
+[wrap~='jc-sa'] {
+  justify-content: space-around;
+}
+
+/** t*/
+[wrap~='ta-l'] {
+  text-align: left;
+}
+
+[wrap~='ta-j'] {
+  text-align: justify;
+}
+
+[wrap~='ta-c'] {
+  text-align: center;
+}
+
+[wrap~='ta-r'] {
+  text-align: right;
+}
+
+// overflow
+[wrap~='o-h'] {
+  overflow: hidden;
+}
+
+[wrap~='o-s'] {
+  overflow: scroll;
+}
+
+[wrap~='oy-s'] {
+  overflow-y: scroll;
+}
+
+[wrap~='ox-s'] {
+  overflow-y: scroll;
+}
+
+[wrap~='oy-s'] {
+  overflow-y: hidden;
+}
+
+[wrap~='ox-s'] {
+  overflow-y: hidden;
+}
+[wrap~='c-333']{
+  color: #333;
+}
+[wrap~='c-666']{
+  color: #666;
+}
+[wrap~='c-999']{
+  color: #999;
+}
+[wrap~='c-stress']{
+  color:#F01B0C;
+}
